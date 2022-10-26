@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "訂單詳情",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "footer": "/components/footer"
+  }
+}

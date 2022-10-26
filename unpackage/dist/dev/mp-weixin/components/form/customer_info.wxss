@@ -1,0 +1,40 @@
+
+.left.data-v-625ff4df {
+	width: 27%;
+}
+.contain_list.data-v-625ff4df {
+	height: 35px;
+	line-height: 35px;
+}
+.red.data-v-625ff4df {
+	width: 65%;
+	color: #D30A17;
+	font-size: 13px;
+	font-family: 'PingFangSC-Regular';
+	font-weight: normal;
+}
+.require.data-v-625ff4df {
+	color: #D30A17;
+	padding-left: 3px;
+}
+.input.data-v-625ff4df {
+	width: 65%;
+}
+.clear.data-v-625ff4df {
+	height: 25px;
+	line-height: 25px;
+	margin: -5px 0 0 0;
+}
+picker.data-v-625ff4df,
+.area.data-v-625ff4df {
+	width: 60px;
+	margin-right: 5px;
+}
+.icon.data-v-625ff4df {
+	position: absolute;
+	right: 10px;
+	width: 12px;
+	height: 12px;
+	pointer-events: none;
+}
+

@@ -1,0 +1,29 @@
+
+.footer.data-v-fad11dd4 {
+	width: 100%;
+	background: #AF1B2E;
+}
+.label.data-v-fad11dd4 {
+	height: auto;
+	font-family: PingFangSC-Regular;
+	font-size: 24rpx;
+	padding: 25px 25px 0 25px;
+	color: #FFEBEE;
+	letter-spacing: -0px;
+	font-weight: 400;
+}
+._li.data-v-fad11dd4 {
+	margin-bottom: 10px;
+}
+.arrow.data-v-fad11dd4 {
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	top: 30px;
+	right: 20px;
+}
+.arrow_up.data-v-fad11dd4 {
+	width: 18px;
+	height: 18px;
+}
+

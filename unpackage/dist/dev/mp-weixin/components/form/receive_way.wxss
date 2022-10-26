@@ -1,0 +1,132 @@
+
+.contain-box.data-v-48cba403 {
+	padding-bottom: 30px;
+}
+.radio-box.data-v-48cba403 {
+	color: #CE3C45;
+	font-size: 15px;
+}
+.radio.data-v-48cba403 {
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	border: 2px solid #CE3C45;
+	background: #fff;
+	margin-right: 5px;
+}
+.center.data-v-48cba403 {
+	width: 12px;
+	height: 12px;
+	background: #CE3C45;
+	border-radius: 50%;
+}
+.select-box.data-v-48cba403 {
+	margin: 8px 0;
+	width: 180px;
+	height: 30px;
+	border-radius: 5px;
+	background: #FFFFFF;
+	box-sizing: border-box;
+	border: 1px solid #D8D8D8;
+}
+.clear.data-v-48cba403 {
+	margin: 5px 0;
+}
+picker.data-v-48cba403 {
+	padding-left: 8px;
+	width: 180px;
+	color: #3d3d3d;
+}
+.type.data-v-48cba403 {
+	margin: 10px 0;
+}
+.label.data-v-48cba403 {
+	width: 180px;
+	padding-right: 25px;
+	overflow: hidden !important;
+	white-space: nowrap !important;
+	text-overflow: ellipsis !important;
+	box-sizing: border-box !important;
+}
+.icon.data-v-48cba403 {
+	position: absolute;
+	right: 8px;
+	width: 15px;
+	height: 15px;
+	pointer-events: none !important;
+}
+input.data-v-48cba403,
+.area.data-v-48cba403 {
+	width: 100%;
+	height: 30px;
+	border-radius: 5px;
+	background: #FFFFFF;
+	border: 1px solid #D8D8D8;
+	padding-left: 5px;
+	color: #3d3d3d;
+	box-sizing: border-box;
+}
+.address.data-v-48cba403 {
+	margin: 5px 0;
+	width: 100%;
+	height: 30px;
+	background: #FFFFFF;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #D8D8D8;
+}
+.name.data-v-48cba403 {
+	margin: 5px 0;
+	width: 100%;
+	height: 30px;
+	background: #FFFFFF;
+	padding-bottom: 10px;
+}
+
+/* reciver */
+.reciver.data-v-48cba403 {
+	padding: 15px 0;
+	font-size: 13px;
+}
+.reciver_title.data-v-48cba403 {
+	font-size: 15px;
+}
+.check.data-v-48cba403 {
+	width: 18px;
+	height: 18px;
+	border: #CE3C45 2px solid;
+	border-radius: 3px;
+	margin: 10px 10px 10px 0;
+}
+.block.data-v-48cba403 {
+	width: 12px;
+	height: 12px;
+	background: #CE3C45;
+	border-radius: 2px;
+}
+.area.data-v-48cba403 {
+	padding: 0;
+}
+.area input.data-v-48cba403 {
+	width: 100%;
+	border: none;
+	height: 28px;
+}
+.ared_code.data-v-48cba403 {
+	width: 80px;
+	color: #3d3d3d;
+	font-size: 14px;
+}
+.ared_code picker.data-v-48cba403 {
+	width: 80px;
+}
+.ared_code .label.data-v-48cba403 {
+	width: 75px;
+	padding-right: 10px;
+}
+.ared_code .icon.data-v-48cba403 {
+	right: 0;
+}
+.number.data-v-48cba403 {
+	width: calc(100% - 90px);
+}
+

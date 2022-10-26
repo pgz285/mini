@@ -1,0 +1,10 @@
+(global["webpackJsonp"]=global["webpackJsonp"]||[]).push([["components/form/customer_info"],{"86ee":function(n,e,t){"use strict";t.r(e);var o=t("f005"),u=t("e2f1");for(var a in u)"default"!==a&&function(n){t.d(e,n,(function(){return u[n]}))}(a);t("ab74");var r,c=t("f0c5"),i=Object(c["a"])(u["default"],o["b"],o["c"],!1,null,"030c2c3a",null,!1,o["a"],r);e["default"]=i.exports},8807:function(n,e,t){},ab74:function(n,e,t){"use strict";var o=t("8807"),u=t.n(o);u.a},ba4b:function(n,e,t){"use strict";(function(n){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0;var o=function(){t.e("components/form/total").then(function(){return resolve(t("52b6"))}.bind(null,t)).catch(t.oe)},u={name:"customer_info",components:{Total:o},data:function(){return{array:["+853","+86"],index:0,customerInfo:{name:"",areaCodeIndex:"",number:"",email:""}}},mounted:function(){this.$nextTick((function(){this.$on("saveCustomerInfo",(function(){n.setStorage({key:"customerInfo",data:{name:this.customerInfo.name,areaCodeIndex:this.index,number:this.customerInfo.number,email:this.customerInfo.email}})})),this.customerInfo=n.getStorageSync("customerInfo")||this.customerInfo,this.index=this.customerInfo.areaCodeIndex||0}))},methods:{bindPickerChange:function(n){this.index=n.detail.value}}};e.default=u}).call(this,t("543d")["default"])},e2f1:function(n,e,t){"use strict";t.r(e);var o=t("ba4b"),u=t.n(o);for(var a in o)"default"!==a&&function(n){t.d(e,n,(function(){return o[n]}))}(a);e["default"]=u.a},f005:function(n,e,t){"use strict";var o;t.d(e,"b",(function(){return u})),t.d(e,"c",(function(){return a})),t.d(e,"a",(function(){return o}));var u=function(){var n=this,e=n.$createElement;n._self._c},a=[]}}]);
+;(global["webpackJsonp"] = global["webpackJsonp"] || []).push([
+    'components/form/customer_info-create-component',
+    {
+        'components/form/customer_info-create-component':(function(module, exports, __webpack_require__){
+            __webpack_require__('543d')['createComponent'](__webpack_require__("86ee"))
+        })
+    },
+    [['components/form/customer_info-create-component']]
+]);

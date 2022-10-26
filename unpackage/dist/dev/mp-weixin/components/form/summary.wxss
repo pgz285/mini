@@ -1,0 +1,22 @@
+
+.sum.data-v-77543296 {
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 24px;
+	letter-spacing: 0.25em;
+	color: #CE3C45;
+}
+.textarea.data-v-77543296 {
+	border: 1px solid #eee;
+	font-size: 14px;
+	height: 90px;
+	font-weight: normal;
+	border-radius: 4px;
+	margin: 12px 0;
+	text-indent: 2px;
+}
+textarea.data-v-77543296 {
+	padding: 6px;
+	height: 90px;
+}
+

@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "落单",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "step0": "/components/form/summary",
+    "step1": "/components/form/customer_info",
+    "step2": "/components/form/receive_way",
+    "step3": "/components/form/payment_method",
+    "footer": "/components/footer"
+  }
+}

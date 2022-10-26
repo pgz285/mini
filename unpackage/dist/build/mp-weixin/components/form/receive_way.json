@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "total": "/components/form/total",
+    "transition": "/components/wyb-transition/wyb-transition"
+  }
+}
