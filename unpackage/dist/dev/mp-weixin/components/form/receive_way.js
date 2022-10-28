@@ -114,7 +114,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var Transition = function Transition() {__webpack_require__.e(/*! require.ensure | components/wyb-transition/wyb-transition */ "components/wyb-transition/wyb-transition").then((function () {return resolve(__webpack_require__(/*! ../wyb-transition/wyb-transition.vue */ 115));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Total = function Total() {__webpack_require__.e(/*! require.ensure | components/form/total */ "components/form/total").then((function () {return resolve(__webpack_require__(/*! ./total.vue */ 110));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var Transition = function Transition() {__webpack_require__.e(/*! require.ensure | components/wyb-transition/wyb-transition */ "components/wyb-transition/wyb-transition").then((function () {return resolve(__webpack_require__(/*! ../wyb-transition/wyb-transition.vue */ 124));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Total = function Total() {__webpack_require__.e(/*! require.ensure | components/form/total */ "components/form/total").then((function () {return resolve(__webpack_require__(/*! ./total.vue */ 119));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 

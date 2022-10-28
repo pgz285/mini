@@ -114,63 +114,68 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var lazyLoad = function lazyLoad() {Promise.all(/*! require.ensure | uni_modules/muqian-lazyLoad/components/muqian-lazyLoad/muqian-lazyLoad */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/muqian-lazyLoad/components/muqian-lazyLoad/muqian-lazyLoad")]).then((function () {return resolve(__webpack_require__(/*! @/uni_modules/muqian-lazyLoad/components/muqian-lazyLoad/muqian-lazyLoad.vue */ 96));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {
   name: "product_card",
+  components: {
+    lazyLoad: lazyLoad },
+
   props: {
     arr: Object },
 

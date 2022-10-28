@@ -1,7 +1,8 @@
 <template>
 	<view class="card">
 		<view class="top relative">
-			<image class="img" :src="arr.images[0].url" mode="aspectFill"></image>
+			<!-- <image class="img" :src="arr.images[0].url" mode="aspectFill"></image> -->
+			<lazyLoad :src="arr.images[0].url" class="img" height="153px" borderRadius="8px 8px 0 0" mode="aspectFill"></lazyLoad>
 
 			<view class="blur space-between hor-center"
 				:style="{background:'linear-gradient(180deg, transparent, '+color+' 120%)'}">
@@ -53,8 +54,12 @@
 </template>
 
 <script>
+	import lazyLoad from '@/uni_modules/muqian-lazyLoad/components/muqian-lazyLoad/muqian-lazyLoad.vue'
 	export default {
 		name: "product_card",
+		components:{
+			lazyLoad
+		},
 		props: {
 			arr: Object
 		},

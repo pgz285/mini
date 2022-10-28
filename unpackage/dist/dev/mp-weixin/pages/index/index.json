@@ -4,6 +4,7 @@
     "list": "/components/product_card",
     "footer": "/components/footer",
     "summary": "/components/index_summary",
-    "popup": "/components/detail_popup"
+    "popup": "/components/detail_popup",
+    "lazy-load": "/uni_modules/muqian-lazyLoad/components/muqian-lazyLoad/muqian-lazyLoad"
   }
 }

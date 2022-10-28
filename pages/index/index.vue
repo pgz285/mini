@@ -5,8 +5,8 @@
 				:indicator-dots="true" :autoplay="false" :interval="2000" :duration="500">
 				<swiper-item v-for="(item,index) in  banner" :key="index">
 					<view class="swiper-item">
-						<image class="img" :src="item.url" mode="aspectFill">
-						</image>
+								<image class="img" :src="item.url" mode="aspectFill"> </image>
+						<!-- <lazyLoad :src="item.url" class="img" height="250px" mode="aspectFill"></lazyLoad> -->
 					</view>
 				</swiper-item>
 			</swiper>
@@ -24,11 +24,20 @@
 		</view>
 
 		<view class="list col">
-			<block v-for="(item,index) in arr" :key="index">
-				<List :arr="item" @show="showPopup"></List>
-			</block>
+			<view class="both-center col" v-if="arr.length==0">
+				<image class="null" src="../../static/svg/null.svg" mode=""></image>
+				<view class="tip">
+					暫無相關產品
+				</view>
+			</view>
+			<view v-else>
+				<block v-for="(item,index) in arr" :key="index">
+					<List :arr="item" @show="showPopup"></List>
+				</block>
+			</view>
 
-			<view class="view-more relative both-center" :style="{color: buttonColor}">
+
+			<view class="view-more relative both-center"  v-if="arr.length!=0" :style="{color: buttonColor}">
 				<view class="">
 					展示更多
 				</view>
@@ -59,12 +68,15 @@
 	import Summary from '../../components/index_summary.vue'
 
 	import Popup from '@/components/detail_popup.vue'
+	import lazyLoad from '@/uni_modules/muqian-lazyLoad/components/muqian-lazyLoad/muqian-lazyLoad.vue'
+
 	export default {
 		components: {
 			List,
 			Footer,
 			Summary,
-			Popup
+			Popup,
+			lazyLoad
 		},
 		data() {
 			return {
@@ -73,7 +85,7 @@
 				color: '',
 				buttonColor: '',
 				banner: [],
-				info:[],
+				info: [],
 				arr: []
 			}
 		},
@@ -96,14 +108,14 @@
 					this.banner = res.banners
 				})
 			},
-			getProduct(){
+			getProduct() {
 				uni.showLoading({
-					title:'加載中'
+					title: '加載中'
 				})
 				this.$request('product-service/category-product/demostore', {}, 'GET').then(res => {
 					// 打印调用成功回调
 					console.log(res.products)
-			this.arr = res.products
+					this.arr = res.products
 				})
 			}
 		}
@@ -207,5 +219,13 @@
 		height: 38px;
 		opacity: 0.05;
 		border-radius: 4px;
+	}
+	.null{
+		padding: 30px 0;
+		width: 120px;
+		height: 120px;
+	}
+	.tip{
+		color: #7F8C9A;
 	}
 </style>
