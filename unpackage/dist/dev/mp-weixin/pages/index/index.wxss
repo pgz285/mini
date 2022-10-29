@@ -5,7 +5,7 @@
 .hd.data-v-57280228 {
 	width: 100%;
 	height: 250px;
-	background: #efefef;
+	background: #fff;
 	position: relative;
 }
 .swiper.data-v-57280228 {
@@ -84,12 +84,12 @@
 	opacity: 0.05;
 	border-radius: 4px;
 }
-.null.data-v-57280228{
+.null.data-v-57280228 {
 	padding: 30px 0;
 	width: 120px;
 	height: 120px;
 }
-.tip.data-v-57280228{
+.tip.data-v-57280228 {
 	color: #7F8C9A;
 }
 

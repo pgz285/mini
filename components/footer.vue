@@ -39,10 +39,9 @@
 				});
 			},
 			getData() {
-				this.$request('store-service/config/host/demo.shoppoint.online', {}, 'GET').then(res => {
-					// 打印调用成功回调
-					this.info = res.store_info
-				})
+				let infos = uni.getStorageSync('infos')
+
+					this.info = infos.store_info
 			}
 		}
 	}

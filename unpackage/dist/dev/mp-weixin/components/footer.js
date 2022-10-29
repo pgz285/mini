@@ -154,11 +154,10 @@ var _default =
         scrollTop: 0 });
 
     },
-    getData: function getData() {var _this = this;
-      this.$request('store-service/config/host/demo.shoppoint.online', {}, 'GET').then(function (res) {
-        // 打印调用成功回调
-        _this.info = res.store_info;
-      });
+    getData: function getData() {
+      var infos = uni.getStorageSync('infos');
+
+      this.info = infos.store_info;
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

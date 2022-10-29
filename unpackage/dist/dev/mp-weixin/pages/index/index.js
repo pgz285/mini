@@ -141,7 +141,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var List = function List() {__webpack_require__.e(/*! require.ensure | components/product_card */ "components/product_card").then((function () {return resolve(__webpack_require__(/*! ../../components/product_card.vue */ 40));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Footer = function Footer() {__webpack_require__.e(/*! require.ensure | components/footer */ "components/footer").then((function () {return resolve(__webpack_require__(/*! ../../components/footer.vue */ 47));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Summary = function Summary() {__webpack_require__.e(/*! require.ensure | components/index_summary */ "components/index_summary").then((function () {return resolve(__webpack_require__(/*! ../../components/index_summary.vue */ 54));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Popup = function Popup() {__webpack_require__.e(/*! require.ensure | components/detail_popup */ "components/detail_popup").then((function () {return resolve(__webpack_require__(/*! @/components/detail_popup.vue */ 61));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var lazyLoad = function lazyLoad() {Promise.all(/*! require.ensure | uni_modules/muqian-lazyLoad/components/muqian-lazyLoad/muqian-lazyLoad */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/muqian-lazyLoad/components/muqian-lazyLoad/muqian-lazyLoad")]).then((function () {return resolve(__webpack_require__(/*! @/uni_modules/muqian-lazyLoad/components/muqian-lazyLoad/muqian-lazyLoad.vue */ 96));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var List = function List() {__webpack_require__.e(/*! require.ensure | components/product_card */ "components/product_card").then((function () {return resolve(__webpack_require__(/*! ../../components/product_card.vue */ 40));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Footer = function Footer() {__webpack_require__.e(/*! require.ensure | components/footer */ "components/footer").then((function () {return resolve(__webpack_require__(/*! ../../components/footer.vue */ 47));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Summary = function Summary() {__webpack_require__.e(/*! require.ensure | components/index_summary */ "components/index_summary").then((function () {return resolve(__webpack_require__(/*! ../../components/index_summary.vue */ 54));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var Popup = function Popup() {__webpack_require__.e(/*! require.ensure | components/detail_popup */ "components/detail_popup").then((function () {return resolve(__webpack_require__(/*! @/components/detail_popup.vue */ 61));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var lazyLoad = function lazyLoad() {Promise.all(/*! require.ensure | uni_modules/muqian-lazyLoad/components/muqian-lazyLoad/muqian-lazyLoad */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/muqian-lazyLoad/components/muqian-lazyLoad/muqian-lazyLoad")]).then((function () {return resolve(__webpack_require__(/*! @/uni_modules/muqian-lazyLoad/components/muqian-lazyLoad/muqian-lazyLoad.vue */ 68));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -232,11 +232,23 @@ __webpack_require__.r(__webpack_exports__);
       arr: [] };
 
   },
+  onLoad: function onLoad(option) {
+    if (!option.host) {
+      uni.setStorage({
+        key: 'host',
+        data: 'testing.shoppoint.online' });
+
+    } else {
+      uni.setStorage({
+        key: 'host',
+        data: option.host });
+
+    }
+  },
   mounted: function mounted() {
     this.color = this.$store.state.Color.themeColor;
     this.buttonColor = this.$store.state.Color.buttonColor;
     this.getData();
-    this.getProduct();
   },
   methods: {
     showPopup: function showPopup(e) {
@@ -244,22 +256,51 @@ __webpack_require__.r(__webpack_exports__);
       this.$refs.popups.$emit("open");
     },
     getData: function getData() {var _this = this;
-      this.$request('store-service/config/host/demo.shoppoint.online', {}, 'GET').then(function (res) {
-        // 打印调用成功回调
-        console.log(res);
-        _this.info = res;
-        _this.banner = res.banners;
-      });
-    },
-    getProduct: function getProduct() {var _this2 = this;
       uni.showLoading({
         title: '加載中' });
 
-      this.$request('product-service/category-product/demostore', {}, 'GET').then(function (res) {
+      var host = uni.getStorageSync('host');
+      this.$request("store-service/config/host/".concat(host), {}, 'GET').then(function (res) {
+        // 打印调用成功回调
+        console.log(res);
+        if (res.error) {
+          uni.showToast({
+            title: '獲取信息失敗',
+            icon: 'error' });
+
+        } else {
+          uni.setStorage({
+            key: 'infos',
+            data: res });
+
+          _this.info = uni.getStorageSync('infos');
+          _this.banner = _this.info.banners;
+
+          _this.getProduct();
+        }
+      });
+    },
+    getProduct: function getProduct() {var _this2 = this;
+
+      this.$request("product-service/category-product/".concat(this.info.merchant_id), {}, 'GET').then(function (res) {
         // 打印调用成功回调
         console.log(res.products);
-        _this2.arr = res.products;
+        if (res.products) {
+          _this2.arr = res.products;
+          setTimeout(function () {
+            uni.hideLoading();
+          }, 800);
+
+        } else {
+          uni.hideLoading();
+          uni.showToast({
+            title: '獲取信息失敗',
+            icon: 'error' });
+
+        }
+
       });
+
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

@@ -5,7 +5,7 @@
 				:indicator-dots="true" :autoplay="false" :interval="2000" :duration="500">
 				<swiper-item v-for="(item,index) in  banner" :key="index">
 					<view class="swiper-item">
-								<image class="img" :src="item.url" mode="aspectFill"> </image>
+						<image class="img" :src="item.url" mode="aspectFill"> </image>
 						<!-- <lazyLoad :src="item.url" class="img" height="250px" mode="aspectFill"></lazyLoad> -->
 					</view>
 				</swiper-item>
@@ -27,7 +27,7 @@
 			<view class="both-center col" v-if="arr.length==0">
 				<image class="null" src="../../static/svg/null.svg" mode=""></image>
 				<view class="tip">
-					暫無相關產品
+					產品加載中...
 				</view>
 			</view>
 			<view v-else>
@@ -37,7 +37,7 @@
 			</view>
 
 
-			<view class="view-more relative both-center"  v-if="arr.length!=0" :style="{color: buttonColor}">
+			<view class="view-more relative both-center" v-if="arr.length!=0" :style="{color: buttonColor}">
 				<view class="">
 					展示更多
 				</view>
@@ -89,11 +89,23 @@
 				arr: []
 			}
 		},
+		onLoad(option) {
+			if (!option.host) {
+				uni.setStorage({
+					key: 'host',
+					data: 'testing.shoppoint.online',
+				});
+			} else {
+				uni.setStorage({
+					key: 'host',
+					data: option.host,
+				});
+			}
+		},
 		mounted() {
 			this.color = this.$store.state.Color.themeColor
 			this.buttonColor = this.$store.state.Color.buttonColor
 			this.getData()
-			this.getProduct()
 		},
 		methods: {
 			showPopup(e) {
@@ -101,22 +113,51 @@
 				this.$refs.popups.$emit("open")
 			},
 			getData() {
-				this.$request('store-service/config/host/demo.shoppoint.online', {}, 'GET').then(res => {
-					// 打印调用成功回调
-					console.log(res)
-					this.info = res
-					this.banner = res.banners
-				})
-			},
-			getProduct() {
 				uni.showLoading({
 					title: '加載中'
 				})
-				this.$request('product-service/category-product/demostore', {}, 'GET').then(res => {
+				let host = uni.getStorageSync('host')
+				this.$request(`store-service/config/host/${host}`, {}, 'GET').then(res => {
+					// 打印调用成功回调
+					console.log(res)
+					if (res.error) {
+						uni.showToast({
+							title: '獲取信息失敗',
+							icon: 'error'
+						})
+					} else {
+						uni.setStorage({
+							key: 'infos',
+							data: res,
+						});
+						this.info = uni.getStorageSync('infos')
+						this.banner = this.info.banners
+
+						this.getProduct()
+					}
+				})
+			},
+			getProduct() {
+
+				this.$request(`product-service/category-product/${this.info.merchant_id}`, {}, 'GET').then(res => {
 					// 打印调用成功回调
 					console.log(res.products)
-					this.arr = res.products
+					if (res.products) {
+						this.arr = res.products
+						setTimeout(function() {
+							uni.hideLoading()
+						}, 800);
+
+					} else {
+						uni.hideLoading()
+						uni.showToast({
+							title: '獲取信息失敗',
+							icon: 'error'
+						})
+					}
+
 				})
+
 			}
 		}
 	}
@@ -130,7 +171,7 @@
 	.hd {
 		width: 100%;
 		height: 250px;
-		background: #efefef;
+		background: #fff;
 		position: relative;
 	}
 
@@ -220,12 +261,14 @@
 		opacity: 0.05;
 		border-radius: 4px;
 	}
-	.null{
+
+	.null {
 		padding: 30px 0;
 		width: 120px;
 		height: 120px;
 	}
-	.tip{
+
+	.tip {
 		color: #7F8C9A;
 	}
 </style>
